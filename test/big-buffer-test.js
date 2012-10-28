@@ -15,7 +15,7 @@ var occ = Math.floor( dlen / plen / plen / plen / plen ),
     indexes = [],
     stime = Date.now();
 
-log( '\n- creating test buffer..(' + mb +' MB)' );
+log( '- creating test buffer..(' + mb +' MB)' );
 for ( ; i < dlen - 1; i += occ ) {
     indexes.push( i );
     bpattern.copy( data, i );

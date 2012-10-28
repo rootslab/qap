@@ -14,7 +14,7 @@ $ npm install qap
 ```javascript
 var log = console.log,
     assert = require( 'assert' ),
-    QuickAsciiParser = require( 'qap' ).QuickAsciiParser,
+    QuickAsciiParser = require( 'qap' ).QuickAsciiParser, // or Qap
     pattern = 'hellofolks\r\n\r\n',
     text = 'hehehellofolks\r\n\r\nloremipsumetdolorsitamethellofolks\r\nhellofolks\r\n\r\n',
     qap = new QuickAsciiParser( pattern );
@@ -24,7 +24,7 @@ var results = qap.parse( text );
 // parser results is an array of starting indexes [ 4, 54 ]
 log( results );
 
-// use parser with raw buffer
+// use qap with a raw buffer
 qap.setPattern( new Buffer( pattern ) );
 var bresults = qap.parse( new Buffer( data ) );
 assert.deepEqual( results, bresults );
@@ -34,11 +34,8 @@ assert.deepEqual( results, bresults );
 
 ###Tests
 
-simply run:
-
 ```javascript
-$node test/dummy-test.js
-$node test/big-buffer-test.js
+$npm test
 
 ```
 
@@ -52,7 +49,7 @@ $node test/big-buffer-test.js
 for default :
 
 > - uses a pattern string of 57 bytes/chars (ascii)
-> - builds a data buffer of 700.1 MBytes in memory
+> - builds a data buffer of 900 MB in memory
 > - uses a redundancy factor for boundary strings. The bigger the value, 
 the lesser are occurrences of boundary string into the text buffer. ( range: [1,5] )
 

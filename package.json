@@ -13,4 +13,7 @@
   , "dependencies": {}
   , "main": "index"
   , "engines": { "node": ">=0.4.x" }
+  , "scripts": {
+        "test": "node test/big-buffer-test.js"
+  }
 }

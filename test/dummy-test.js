@@ -1,4 +1,4 @@
-
+// TODO, dummy test for the "double memory" version
 var log = console.log,
     assert = require( 'assert' ),
     QuickAsciiParser = require( '../' ).Qap,
@@ -7,7 +7,7 @@ var log = console.log,
     qap = new QuickAsciiParser( pattern ),
     results = qap.parse( data );
 
-log( '\n- input data was parsed, length: ' + data.length, 'bytes' );
+log( '- input data was parsed, length: ' + data.length, 'bytes' );
 log( '- pattern length:', pattern.length, 'bytes' );
 log( '- resulting indexes:', results );
 log( '- now running dummy tests..' );
