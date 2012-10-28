@@ -1,6 +1,6 @@
 {
     "name": "qap"
-  , "version": "1.1.1"
+  , "version": "1.1.2"
   , "description": "Qap is a fast ASCII parser, intended only for using with pattern strings smaller than 255 chars/bytes."
   , "homepage" : "https://github.com/rootslab/qap"
   ,"repository" : {
