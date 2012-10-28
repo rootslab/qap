@@ -1,6 +1,5 @@
 ###Quick ASCII Parser 
- * Qap is an ASCII string parser, intended only for pattern strings with a 
- * length lesser than 255 chars/bytes.
+ * Qap is an ASCII string parser, intended only for pattern strings with a length lesser than 255 chars/bytes.
  * Better results are achieved with sparse patterns in the data to be parsed.
  * It is an implementation of QuickSearch algorithm :
  * http://www-igm.univ-mlv.fr/~lecroq/string/node19.html#SECTION00190
@@ -50,6 +49,12 @@ $node test/big-buffer-test.js
 ```bash
   $ node bench/data-rate
 ```
+for default :
+
+> - uses a pattern string of 57 bytes/chars (ascii)
+> - builds a data buffer of 700.1 MBytes in memory
+> - uses a redundancy factor for boundary strings. The bigger the value, 
+the lesser are occurrences of boundary string into the text buffer. ( range: [1,5] )
 
  **Custom Usage**:
 
@@ -57,8 +62,4 @@ $node test/big-buffer-test.js
   // or with [NumberOfMegaBytes] [GapFactor] [patternString]
   $ node bench/data-rate.js 700 4 "that'sallfolks"
 ```
-> - it uses a pattern string of 57 bytes/chars (ascii), 
-> - it builds a data buffer of 700.1 MBytes in memory,  
-> - it uses a redundancy factor for boundary strings. The bigger the value, 
-the lesser are occurrences of boundary string into the text buffer. ( range: [1,5] )
 
