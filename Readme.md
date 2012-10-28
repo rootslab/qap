@@ -6,8 +6,16 @@
 
 ###Install
 ```bash
-$ npm install qap
+$ npm install qap [-g]
 ```
+###Tests
+
+```javascript
+$cd qap/
+$npm test
+```
+
+-------------
 
 ###Usage
 
@@ -21,22 +29,16 @@ var log = console.log,
 
 var results = qap.parse( text );
 
-// parser results is an array of starting indexes [ 4, 54 ]
-log( results );
-
 // use qap with a raw buffer
 qap.setPattern( new Buffer( pattern ) );
+
 var bresults = qap.parse( new Buffer( data ) );
+
 assert.deepEqual( results, bresults );
+
+// parser results is an array of starting indexes [ 4, 54 ]
+log( results, bresults );
 ```
--------------
-
-###Tests
-
-```javascript
-$npm test
-```
-
 -------------
 
 ### Data Rate Benchmark
