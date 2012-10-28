@@ -28,7 +28,6 @@ log( results );
 qap.setPattern( new Buffer( pattern ) );
 var bresults = qap.parse( new Buffer( data ) );
 assert.deepEqual( results, bresults );
-
 ```
 -------------
 
@@ -36,7 +35,6 @@ assert.deepEqual( results, bresults );
 
 ```javascript
 $npm test
-
 ```
 
 -------------
