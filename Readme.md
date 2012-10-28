@@ -1,6 +1,5 @@
-[![build status](https://secure.travis-ci.org/rootslab/qap.png)](http://travis-ci.org/rootslab/qap)
-
 ###Quick ASCII Parser 
+[![build status](https://secure.travis-ci.org/rootslab/qap.png)](http://travis-ci.org/rootslab/qap)
  * Qap is an ASCII string parser, intended only for pattern strings with a length lesser than 255 chars/bytes.
  * Better results are achieved with sparse patterns in the data to be parsed.
  * It is an implementation of QuickSearch algorithm :
@@ -16,9 +15,6 @@ $ npm install qap [-g]
 $cd qap/
 $npm test
 ```
-
--------------
-
 ###Usage
 
 ```javascript
@@ -41,7 +37,6 @@ assert.deepEqual( results, bresults );
 // parser results is an array of starting indexes [ 4, 54 ]
 log( results, bresults );
 ```
--------------
 
 ### Data Rate Benchmark
 
