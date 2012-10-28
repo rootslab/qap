@@ -59,7 +59,7 @@ the lesser are occurrences of boundary string into the text buffer. ( range: [1,
  **Custom Usage**:
 
 ```bash    
-  // or with [NumberOfMegaBytes] [GapFactor] [patternString]
+  // with [NumberOfMegaBytes] [GapFactor] [patternString]
   $ node bench/data-rate.js 700 4 "that'sallfolks"
 ```
 
