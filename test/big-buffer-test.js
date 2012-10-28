@@ -8,9 +8,8 @@ var log = console.log,
     mb = 700,
     dlen = mb * 1024 * 1024,
     data = new Buffer( dlen ),
-    qap = new QuickAsciiParser( bpattern );
-
-var occ = Math.floor( dlen / plen / plen / plen / plen ),
+    qap = new QuickAsciiParser( bpattern ),
+    occ = Math.floor( dlen / plen / plen / plen / plen ),
     i = occ,
     indexes = [],
     stime = Date.now();

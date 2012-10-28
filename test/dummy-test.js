@@ -1,3 +1,4 @@
+/** /
 // TODO, dummy test for the "double memory" version
 var log = console.log,
     assert = require( 'assert' ),
@@ -27,3 +28,4 @@ var bresults = qap.parse( new Buffer( data ) );
 assert.deepEqual( results, bresults );
 
 log( '- all tests passed!\n' );
+/**/
