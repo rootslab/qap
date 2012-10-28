@@ -25,7 +25,8 @@ var log = console.log,
     text = 'hehehellofolks\r\n\r\nloremipsumetdolorsitamethellofolks\r\nhellofolks\r\n\r\n',
     qap = new QuickAsciiParser( pattern );
 
-var results = qap.parse( text );
+// parse data from beginning
+var results = qap.parse( text, 0 );
 
 // use qap with a raw buffer
 qap.setPattern( new Buffer( pattern ) );
