@@ -1,0 +1,16 @@
+{
+    "name": "qap"
+  , "version": "1.0.0"
+  , "description": "qap is a fast ASCII string parser, intended only for pattern strings with a length lesser than 255 chars/bytes"
+  , "homepage" : "https://github.com/rootslab/qap"
+  ,"repository" : {
+        "type" : "git"
+        ,"url" : "git://github.com/rootslab/qap.git"
+    }
+  , "keywords" : [ "ascii","parser", "quicksearch" ]
+  , "tags":[ "ascii", "parser", "quicksearch", "pattern matching" ]
+  , "author": "Guglielmo Ferri <44gatti@gmail.com>"
+  , "dependencies": {}
+  , "main": "index"
+  , "engines": { "node": ">=0.4.x" }
+}
