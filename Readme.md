@@ -1,7 +1,7 @@
 ###Quick ASCII Parser 
 [![build status](https://secure.travis-ci.org/rootslab/qap.png)](http://travis-ci.org/rootslab/qap)
- * Qap is an ASCII parser, intended only for using with pattern strings smaller than 255 chars/bytes.
- * Better results are achieved with sparse patterns in the data to be parsed.
+ * Qap is a fast ASCII parser, intended only for using with pattern strings smaller than 255 chars/bytes.
+ * Better results are achieved with long patterns.
  * It is an implementation of QuickSearch algorithm :
  * http://www-igm.univ-mlv.fr/~lecroq/string/node19.html#SECTION00190
 
@@ -25,7 +25,8 @@ var log = console.log,
     text = 'hehehellofolks\r\n\r\nloremipsumetdolorsitamethellofolks\r\nhellofolks\r\n\r\n',
     qap = new QuickAsciiParser( pattern );
 
-var results = qap.parse( text );
+// parse data from beginning
+var results = qap.parse( text, 0 );
 
 // use qap with a raw buffer
 qap.setPattern( new Buffer( pattern ) );
