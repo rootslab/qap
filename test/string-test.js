@@ -1,4 +1,4 @@
-console.log( '. nothing to see/do here..' );
+console.log( '- nothing to see/do here..' );
 /** /
 // TODO, string test for the "double array/memory" parser version
 var log = console.log,
