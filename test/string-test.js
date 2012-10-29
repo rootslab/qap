@@ -1,5 +1,6 @@
+console.log( '. nothing to see/do here..' );
 /** /
-// TODO, dummy test for the "double memory" version
+// TODO, string test for the "double array/memory" parser version
 var log = console.log,
     assert = require( 'assert' ),
     QuickAsciiParser = require( '../' ).Qap,
