@@ -31,7 +31,7 @@ log( '\n- input data was parsed in', ( ( Date.now() - sptime ) / 1000 ).toFixed(
 log( '- total results:', results.length );
 assert.equal( results.length, indexes.length, 'parsed results don\'t match with existing patterns' );
 assert.deepEqual( results, indexes, 'indexes and parsed indexes don\'t match' );
-log( '- sucessfully compared parsed results and pre-recorded indexes..' );
+log( '- successfully compared parsed results and pre-recorded indexes..' );
 log( '\n- re-parse data from ' + offset + ' result index (' + indexes[ offset ] + ') to obtain partial results..' );
 presults = qap.parse( data, indexes[ offset ] + 1 );
 log( '- check partial results length (' + ( presults.length ) + ' === ' + ( results.length - offset - 1 ) + ')' );
