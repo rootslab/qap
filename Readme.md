@@ -1,7 +1,7 @@
 ###Quick ASCII Parser 
 [![build status](https://secure.travis-ci.org/rootslab/qap.png)](http://travis-ci.org/rootslab/qap)
  * Qap is a fast ASCII parser, intended only for using with pattern strings smaller than 255 chars/bytes.
- * Better results are achieved with long patterns.
+ * Better results are achieved with long and sparse patterns.
  * It is an implementation of QuickSearch algorithm :
  * http://www-igm.univ-mlv.fr/~lecroq/string/node19.html#SECTION00190
 
