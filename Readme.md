@@ -19,7 +19,7 @@ $npm test
 
 > Create an instance with a Buffer or String. 
 
-```
+```javascript
 Qap( String pattern )
 Qap( Buffer pattern )
 ```
@@ -27,14 +27,14 @@ Qap( Buffer pattern )
 > List all pattern occurrences into a String or Buffer data.
 > It returns an array of indexes.
 
-```
+```javascript
 Qap.parse( String data, [ Number startFromIndex ], [ Number limitResultsTo ] ) : []
 Qap.parse( Buffer data, [ Number startFromIndex ], [ Number limitResultsTo ] ) : []
 ```
 
 > Change the pattern with a Buffer or String
 
-```
+```javascript
 Qap.setPattern( String anotherPattern )
 Qap.setPattern( Buffer anotherPattern )
 ```
