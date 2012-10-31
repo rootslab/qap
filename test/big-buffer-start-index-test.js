@@ -7,7 +7,7 @@ var log = console.log,
     mb = 700,
     dlen = mb * 1024 * 1024,
     data = new Buffer( dlen ),
-    qap = new QuickAsciiParser( bpattern ),
+    qap = QuickAsciiParser( bpattern ),
     occ = Math.floor( dlen / plen / plen / plen / plen ),
     i = occ,
     indexes = [],
@@ -15,6 +15,7 @@ var log = console.log,
 
 log( '- creating test buffer..(' + mb +' MB)' );
 
+// occ should be >> pattern.length
 for ( ; i < dlen - 1; i += occ ) {
     indexes.push( i );
     bpattern.copy( data, i );
@@ -37,7 +38,7 @@ assert.equal( results.length, indexes.length, 'parsed results don\'t match with 
 assert.deepEqual( results, indexes, 'indexes and parsed indexes don\'t match' );
 
 log( '- successfully compared parsed results and pre-recorded indexes..' );
-log( '- re-parse data from ' + offset + ' result index (' + indexes[ offset ] + ') to obtain partial results..' );
+log( '- re-parse data from result with index ' + offset + ' to obtain partial results..' );
 presults = qap.parse( data, indexes[ offset ] + 1 );
 
 log( '- check partial results length (' + ( presults.length ) + ' === ' + ( results.length - offset - 1 ) + ')' );

@@ -1,7 +1,7 @@
 ###Quick ASCII Parser 
 [![build status](https://secure.travis-ci.org/rootslab/qap.png)](http://travis-ci.org/rootslab/qap)
  * Qap is a fast ASCII parser, intended only for using with pattern strings smaller than 255 chars/bytes.
- * Better results are achieved with long patterns.
+ * Better results are achieved with long and sparse patterns.
  * It is an implementation of QuickSearch algorithm :
  * http://www-igm.univ-mlv.fr/~lecroq/string/node19.html#SECTION00190
 
@@ -15,28 +15,54 @@ $ npm install qap [-g]
 $cd qap/
 $npm test
 ```
-###Usage
+###Signatures
+
+> Create an instance with a Buffer or String. 
 
 ```javascript
-var log = console.log,
-    assert = require( 'assert' ),
-    QuickAsciiParser = require( 'qap' ).QuickAsciiParser, // or Qap
+Qap( String pattern )
+Qap( Buffer pattern )
+```
+
+> List all pattern occurrences into a String or Buffer data.
+> It returns an array of indexes.
+
+```javascript
+Qap.parse( String data, [ Number startFromIndex ], [ Number limitResultsTo ] ) : []
+Qap.parse( Buffer data, [ Number startFromIndex ], [ Number limitResultsTo ] ) : []
+```
+
+> Change the pattern with a Buffer or String
+
+```javascript
+Qap.setPattern( String anotherPattern )
+Qap.setPattern( Buffer anotherPattern )
+```
+
+###Usage Example
+
+```javascript
+var assert = require( 'assert' ),
+    QuickAsciiParser = require( './qap' ).QuickAsciiParser, // or Qap
     pattern = 'hellofolks\r\n\r\n',
-    text = 'hehehellofolks\r\n\r\nloremipsumetdolorsitamethellofolks\r\nhellofolks\r\n\r\n',
-    qap = new QuickAsciiParser( pattern );
+    text = 'hehehellofolks\r\n\r\nloremipsumhellofolks\r\nhellofolks\r\n\r\n';
 
-// parse data from beginning
-var results = qap.parse( text, 0 );
+// create a Qap instance that parses the pattern
+var qap = new QuickAsciiParser( pattern ),
+	// parse data from beginning
+	results = qap.parse( text );
 
-// use qap with a raw buffer
+// change pattern with a buffer
 qap.setPattern( new Buffer( pattern ) );
 
-var bresults = qap.parse( new Buffer( data ) );
+// re-parse data passing a Buffer instance instead of a String
+var bresults = qap.parse( new Buffer( text ) );
 
+// results are the same
 assert.deepEqual( results, bresults );
 
-// parser results is an array of starting indexes [ 4, 54 ]
-log( results, bresults );
+// parser results ( starting indexes ) [ 4, 40 ]
+console.log( results, bresults );
 ```
 
 ### Data Rate Benchmark
