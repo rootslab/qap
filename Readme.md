@@ -15,7 +15,13 @@ $ npm install qap [-g]
 $cd qap/
 $npm test
 ```
-###Usage
+##Signatures
+
+> Qap( String | Buffer )
+> Qap.parse( String | Buffer , [ startFromIndex ], [ limitResults ] )
+> Qap.setPattern( String | Buffer );
+
+###Usage Example
 
 ```javascript
 var log = console.log,
@@ -26,7 +32,7 @@ var log = console.log,
     qap = new QuickAsciiParser( pattern );
 
 // parse data from beginning
-var results = qap.parse( text, 0 );
+var results = qap.parse( text );
 
 // use qap with a raw buffer
 qap.setPattern( new Buffer( pattern ) );
