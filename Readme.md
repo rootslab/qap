@@ -65,7 +65,7 @@ assert.deepEqual( results, bresults );
 console.log( results, bresults );
 ```
 
-### Data Rate Benchmark
+### Data Rate Simple Benchmark
 
 ```bash
   $ node bench/data-rate
@@ -74,8 +74,8 @@ for default :
 
 > - uses a pattern string of 57 bytes/chars (ascii)
 > - builds a data buffer of 700 MB in memory
-> - uses a redundancy factor for boundary strings. The bigger the value, 
-the lesser are occurrences of boundary string into the text buffer. ( range: [1,5] )
+> - uses a redundancy factor for pattern strings. The bigger the value, 
+the lesser are occurrences of pattern string into the text buffer. ( range: [1,5] )
 
  **Custom Usage**:
 
