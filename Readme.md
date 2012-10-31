@@ -9,7 +9,7 @@
 ```bash
 $ npm install qap [-g]
 ```
-###Tests
+###Run Tests
 
 ```javascript
 $cd qap/
@@ -48,7 +48,7 @@ var assert = require( 'assert' ),
     text = 'hehehellofolks\r\n\r\nloremipsumhellofolks\r\nhellofolks\r\n\r\n';
 
 // create a Qap instance that parses the pattern
-var qap = new QuickAsciiParser( pattern ),
+var qap = QuickAsciiParser( pattern ),
 	// parse data from beginning
 	results = qap.parse( text );
 
