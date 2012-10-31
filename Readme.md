@@ -45,7 +45,7 @@ Qap.setPattern( Buffer anotherPattern )
 var assert = require( 'assert' ),
     QuickAsciiParser = require( './qap' ).QuickAsciiParser, // or Qap
     pattern = 'hellofolks\r\n\r\n',
-    text = 'hehehellofolks\r\n\r\nloremipsumhellofolks\r\nhellofolks\r\n\r\n';
+    text = 'hehe' + pattern +'loremipsumhellofolks\r\n' + pattern;
 
 // create a Qap instance that parses the pattern
 var qap = QuickAsciiParser( pattern ),
@@ -79,7 +79,7 @@ the lesser are occurrences of pattern string into the text buffer. ( range: [1,5
 
  **Custom Usage**:
 
-```bash    
+```bash
   // with [NumberOfMegaBytes] [GapFactor] [patternString]
   $ node bench/data-rate.js 700 4 "that'sallfolks"
 ```
