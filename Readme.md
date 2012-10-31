@@ -15,34 +15,38 @@ $ npm install qap [-g]
 $cd qap/
 $npm test
 ```
-##Signatures
+###Signatures
 
 > Qap( String | Buffer )
+
 > Qap.parse( String | Buffer , [ startFromIndex ], [ limitResults ] )
+
 > Qap.setPattern( String | Buffer );
 
 ###Usage Example
 
 ```javascript
-var log = console.log,
-    assert = require( 'assert' ),
+var assert = require( 'assert' ),
     QuickAsciiParser = require( 'qap' ).QuickAsciiParser, // or Qap
     pattern = 'hellofolks\r\n\r\n',
-    text = 'hehehellofolks\r\n\r\nloremipsumetdolorsitamethellofolks\r\nhellofolks\r\n\r\n',
-    qap = new QuickAsciiParser( pattern );
+    text = 'hehehellofolks\r\n\r\nloremipsumetdolorsitamethellofolks\r\nhellofolks\r\n\r\n';
 
-// parse data from beginning
-var results = qap.parse( text );
+// create a Qap instance that parses the pattern
+var qap = new QuickAsciiParser( pattern ),
+	// parse data from beginning
+	results = qap.parse( text );
 
-// use qap with a raw buffer
+// change pattern with a buffer
 qap.setPattern( new Buffer( pattern ) );
 
-var bresults = qap.parse( new Buffer( data ) );
+// re-parse data passing a Buffer instance instead of String
+var bresults = qap.parse( new Buffer( text ) );
 
+// results are the same
 assert.deepEqual( results, bresults );
 
-// parser results is an array of starting indexes [ 4, 54 ]
-log( results, bresults );
+// note thta parser results is an array of starting indexes [ 4, 54 ]
+console.log( results, bresults );
 ```
 
 ### Data Rate Benchmark
