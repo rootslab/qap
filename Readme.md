@@ -17,19 +17,28 @@ $npm test
 ```
 ###Signatures
 
-> Qap( String | Buffer )
+```
+// create an instance with a Buffer or String 
+Qap( String pattern )
+Qap( Buffer pattern )
 
-> Qap.parse( String | Buffer , [ startFromIndex ], [ limitResults ] )
 
-> Qap.setPattern( String | Buffer );
+// list all pattern occurrences into the data, returning an array of indexes
+Qap.parse( String data, [ Number startFromIndex ], [ Number limitResultsTo ] ) : []
+Qap.parse( Buffer data, [ Number startFromIndex ], [ Number limitResultsTo ] ) : []
+
+// change the pattern with a Buffer or String
+Qap.setPattern( String anotherPattern )
+Qap.setPattern( Buffer anotherPattern )
+```
 
 ###Usage Example
 
 ```javascript
 var assert = require( 'assert' ),
-    QuickAsciiParser = require( 'qap' ).QuickAsciiParser, // or Qap
+    QuickAsciiParser = require( './qap' ).QuickAsciiParser, // or Qap
     pattern = 'hellofolks\r\n\r\n',
-    text = 'hehehellofolks\r\n\r\nloremipsumetdolorsitamethellofolks\r\nhellofolks\r\n\r\n';
+    text = 'hehehellofolks\r\n\r\nloremipsumhellofolks\r\nhellofolks\r\n\r\n';
 
 // create a Qap instance that parses the pattern
 var qap = new QuickAsciiParser( pattern ),
@@ -39,13 +48,13 @@ var qap = new QuickAsciiParser( pattern ),
 // change pattern with a buffer
 qap.setPattern( new Buffer( pattern ) );
 
-// re-parse data passing a Buffer instance instead of String
+// re-parse data passing a Buffer instance instead of a String
 var bresults = qap.parse( new Buffer( text ) );
 
 // results are the same
 assert.deepEqual( results, bresults );
 
-// note thta parser results is an array of starting indexes [ 4, 54 ]
+// parser results ( starting indexes ) [ 4, 40 ]
 console.log( results, bresults );
 ```
 
