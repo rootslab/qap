@@ -17,20 +17,23 @@ $npm test
 ```
 ###Signatures
 
-> create an instance with a Buffer or String 
+> Create an instance with a Buffer or String. 
+
 ```
 Qap( String pattern )
 Qap( Buffer pattern )
 ```
 
-> list all pattern occurrences into a String or Buffer data.
-> It returns an array of indexes
+> List all pattern occurrences into a String or Buffer data.
+> It returns an array of indexes.
+
 ```
 Qap.parse( String data, [ Number startFromIndex ], [ Number limitResultsTo ] ) : []
 Qap.parse( Buffer data, [ Number startFromIndex ], [ Number limitResultsTo ] ) : []
 ```
 
-> change the pattern with a Buffer or String
+> Change the pattern with a Buffer or String
+
 ```
 Qap.setPattern( String anotherPattern )
 Qap.setPattern( Buffer anotherPattern )
