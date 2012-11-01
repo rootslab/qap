@@ -68,10 +68,10 @@ assert.deepEqual( results, bresults );
 console.log( results, bresults );
 ```
 
-### Data Rate Simple Benchmark
+####Benchmark for small patterns is very fast
 
 ```bash
-  $ node bench/data-rate
+  $ node bench/small-pattern-data-rate
 ```
 for default :
 
@@ -87,3 +87,11 @@ the lesser are occurrences of pattern string into the text buffer. ( range: [1,5
   $ node bench/data-rate.js 700 4 "that'sallfolks"
 ```
 
+####Benchmark for big patterns is very slow
+
+```bash
+  $ node bench-big-pattern-data-rate
+```
+
+> it uses a pattern size of 2MB
+> builds a data buffer of 100MB copying pattern 25 times

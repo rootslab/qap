@@ -6,7 +6,6 @@ var log = console.log,
             mtime = 0,
             len = p.length,
             gap = Math.pow( len, ( gapFactor && gapFactor > 1 ) ? gapFactor : 3 ),//power of len
-            // gap = parseInt(Math.log(len)*Math.log(len)*Math.log(len)*Math.log(len),10),
             mb =  1024 * 1024,
             size = MBsize || defaultSize // megabytes
             tSize = parseInt( size * mb, 10 ),
@@ -46,8 +45,7 @@ process.argv.forEach( function ( val, index, array ) {
     ( index === 4 ) ? ( pattern = ( ( val.length > 1 ) && ( val.length < 255 ) ) ? ( '--' + val + '\r\n' ) : pattern ) : null;  
 } );
 
-
-p = new Buffer( pattern ); // max 254 chars due to single byte use
+p = new Buffer( pattern );
 t = buildTestBuffer( p, bsize, gapfactor );
 
 var qap = QuickParser( p ),
