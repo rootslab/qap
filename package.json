@@ -1,6 +1,6 @@
 {
     "name" : "qap"
-  , "version" : "2.0.0"
+  , "version" : "2.0.1"
   , "description" : "Qap is a quick parser for string or buffer patterns."
   , "homepage" : "https://github.com/rootslab/qap"
   ,"repository" : {
