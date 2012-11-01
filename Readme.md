@@ -1,6 +1,6 @@
 ###QuickParser 
 [![build status](https://secure.travis-ci.org/rootslab/qap.png)](http://travis-ci.org/rootslab/qap)
- * Qap, a fast pattern parser.
+ * Qap is a quick parser for string or buffer patterns.
  * Better results are achieved with long and sparse patterns.
  * It is an implementation of QuickSearch algorithm :
  * http://www-igm.univ-mlv.fr/~lecroq/string/node19.html#SECTION00190
@@ -17,7 +17,7 @@ $npm test
 ```
 ###Signatures
 
-> Create an instance with a Buffer or String. 
+> Create an instance with a Buffer or String pattern. 
 
 ```javascript
 Qap( String pattern )
@@ -25,10 +25,13 @@ Qap( Buffer pattern )
 ```
 
 > List all pattern occurrences into a String or Buffer data.
+
 > It returns an array of indexes.
 
 ```javascript
+// slower with String
 Qap.parse( String data, [ Number startFromIndex ], [ Number limitResultsTo ] ) : []
+// faster with Buffer
 Qap.parse( Buffer data, [ Number startFromIndex ], [ Number limitResultsTo ] ) : []
 ```
 

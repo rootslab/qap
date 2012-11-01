@@ -26,21 +26,3 @@ log( '- check if parsed results is equal to', 4 );
 assert.equal( results.length, 4 );
 log( '- compare results with pre-defined indexes' );
 assert.deepEqual( indexes, results, 'results indexes don\'t match' );
-
-/** /
-log( '- create pattern with 2 sub-pattern side by side' );
-for ( ; i < n; ++i ) {
-    spattern += spattern;
-} 
-
-log( '- create a Buffer copying 2 patterns side by side' );
-bpattern.copy( data, bpattern.length );
-bpattern.copy( data, ( bpattern.length * 2 ) );
-log( '- parse data for patterns and get results' );
-var qap = QuickParser( bpattern ),
-    results = qap.parse( data );
-
-log( '- check if the parse method returns exactly 3 results' );
-assert.equal( results.length, 3, 'results length is wrong, must be 3, now it\'s ' + results.length );
-assert.deepEqual( results, [ 20, 30, 40 ], 'results don\'t match' );
-/**/
