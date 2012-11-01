@@ -25,7 +25,6 @@ Qap( Buffer pattern )
 ```
 
 > List all pattern occurrences into a String or Buffer data.
-
 > It returns an array of indexes.
 
 ```javascript
