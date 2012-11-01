@@ -90,7 +90,7 @@ the lesser are occurrences of pattern string into the text buffer. ( range: [1,5
 ####Benchmark for big patterns is very slow
 
 ```bash
-  $ node bench-big-pattern-data-rate
+  $ node bench/big-pattern-data-rate
 ```
 
 > - it uses a pattern size of 2MB
