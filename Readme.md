@@ -93,5 +93,5 @@ the lesser are occurrences of pattern string into the text buffer. ( range: [1,5
   $ node bench-big-pattern-data-rate
 ```
 
-> it uses a pattern size of 2MB
-> builds a data buffer of 100MB copying pattern 25 times
+> - it uses a pattern size of 2MB
+> - builds a data buffer of 100MB copying pattern 25 times
