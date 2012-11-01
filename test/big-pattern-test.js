@@ -1,6 +1,6 @@
 var log = console.log,
     assert = require( 'assert' ),
-    QuickAsciiParser = require( '../' ).Qap,
+    QuickParser = require( '../' ).Qap,
     spattern = '---------------hellofolks!!!!!!!!!!!!\r\n\r\n\r\n',
     splen = spattern.length,
     n = 8, // 2^n times
@@ -25,7 +25,7 @@ for ( i = 0; i < n; ++i ) {
     bpattern.copy( data, offset );
 }
 log( '- parse data for patterns and get results' );
-var qap = QuickAsciiParser( bpattern ),
+var qap = QuickParser( bpattern ),
     results = qap.parse( data );
 
 log( '- check results length, it should be equal to ' + n );

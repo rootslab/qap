@@ -1,6 +1,6 @@
-###Quick ASCII Parser 
+###QuickParser 
 [![build status](https://secure.travis-ci.org/rootslab/qap.png)](http://travis-ci.org/rootslab/qap)
- * Qap is a fast parser for ASCII string patterns.
+ * Qap, a fast pattern parser.
  * Better results are achieved with long and sparse patterns.
  * It is an implementation of QuickSearch algorithm :
  * http://www-igm.univ-mlv.fr/~lecroq/string/node19.html#SECTION00190
@@ -43,12 +43,12 @@ Qap.setPattern( Buffer anotherPattern )
 
 ```javascript
 var assert = require( 'assert' ),
-    QuickAsciiParser = require( './qap' ).QuickAsciiParser, // or Qap
+    QuickParser = require( './qap' ).QuickParser, // or Qap
     pattern = 'hellofolks\r\n\r\n',
     text = 'hehe' + pattern +'loremipsumhellofolks\r\n' + pattern;
 
 // create a Qap instance that parses the pattern
-var qap = QuickAsciiParser( pattern ),
+var qap = QuickParser( pattern ),
 	// parse data from beginning
 	results = qap.parse( text );
 
@@ -72,7 +72,7 @@ console.log( results, bresults );
 ```
 for default :
 
-> - uses a pattern string of 57 bytes/chars (ascii)
+> - uses a pattern string of 57 bytes/chars
 > - builds a data buffer of 700 MB in memory
 > - uses a redundancy factor for pattern strings. The bigger the value, 
 the lesser are occurrences of pattern string into the text buffer. ( range: [1,5] )

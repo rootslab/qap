@@ -1,6 +1,6 @@
 var log = console.log,
     assert = require( 'assert' ),
-    QuickAsciiParser = require( '../' ).Qap,
+    QuickParser = require( '../' ).Qap,
     spattern = '-----hello',
     splen = spattern.length,
     n = 1, // 2^n times
@@ -21,7 +21,7 @@ bpattern = new Buffer( spattern );
 bpattern.copy( data, bpattern.length );
 bpattern.copy( data, ( bpattern.length * 2 ) );
 log( '- parse data for patterns and get results' );
-var qap = QuickAsciiParser( bpattern ),
+var qap = QuickParser( bpattern ),
     results = qap.parse( data );
 
 log( '- check if the parse method returns exactly 3 results' );

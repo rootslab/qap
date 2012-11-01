@@ -1,5 +1,5 @@
 var log = console.log,
-    QuickAsciiParser = require( '../' ).Qap,
+    QuickParser = require( '../' ).Qap,
     defaultSize = 700.1, //megabytes
     buildTestBuffer = function( p, MBsize, gapFactor ){
         var s = Date.now(),
@@ -50,7 +50,7 @@ process.argv.forEach( function ( val, index, array ) {
 p = new Buffer( pattern ); // max 254 chars due to single byte use
 t = buildTestBuffer( p, bsize, gapfactor );
 
-var qap = QuickAsciiParser( p ),
+var qap = QuickParser( p ),
     stime = Date.now(),
     results = qap.parse( t ),
     elapsed = Date.now() - stime;

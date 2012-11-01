@@ -3,10 +3,10 @@ console.log( '- nothing to see/do here..' );
 // TODO, string test for the "double array/memory" parser version
 var log = console.log,
     assert = require( 'assert' ),
-    QuickAsciiParser = require( '../' ).Qap,
+    QuickParser = require( '../' ).Qap,
     pattern = 'bacicc\r\n\r\n',
     data = 'ambara' + pattern + 'icocco\r\n\r\tregallinesulcom' + pattern + 'obacicc\r\n\ri',
-    qap = new QuickAsciiParser( pattern ),
+    qap = new QuickParser( pattern ),
     results = qap.parse( data );
 
 log( '- input data was parsed, length: ' + data.length, 'bytes' );
