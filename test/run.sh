@@ -5,5 +5,5 @@ for t in test/*-test.js; do
   node $t || let fails++
   let n++
 done
-echo $n "test files executed"
+echo -e "\n" $n "test files executed\n"
 exit $fails
