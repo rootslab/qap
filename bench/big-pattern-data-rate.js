@@ -42,4 +42,4 @@ log( '- compare results and pre-defined indexes' );
 assert.deepEqual( results, indexes );
 
 log( '- test data was parsed in', etime, 'secs' );
-log( '- parsing data rate is:', ( mb / etime ).toFixed( 2 ), 'Mbit/sec' );
+log( '- parsing data rate is:', ( 8 * mb / etime ).toFixed( 2 ), 'Mbit/sec' );
