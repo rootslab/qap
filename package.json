@@ -1,7 +1,7 @@
 {
     "name" : "qap"
-  , "version" : "1.4.0"
-  , "description" : "Qap, a fast pattern parser."
+  , "version" : "2.0.0"
+  , "description" : "Qap, a quick string parser."
   , "homepage" : "https://github.com/rootslab/qap"
   ,"repository" : {
         "type" : "git"
