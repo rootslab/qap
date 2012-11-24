@@ -26,7 +26,7 @@ Qap( Buffer pattern )
 ```
 
 > List all pattern occurrences into a String or Buffer data.
-> It returns a new array of indexes, or it populates an array passed as the last argument to parse method
+> It returns a new array of indexes, or populates an array passed as the last argument to parse method.
 
 ```javascript
 // slower with String
