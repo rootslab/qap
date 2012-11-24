@@ -26,13 +26,13 @@ Qap( Buffer pattern )
 ```
 
 > List all pattern occurrences into a String or Buffer data.
-> It returns an array of indexes.
+> It returns a new array of indexes, or it populates an array passed as the last argument to parse method
 
 ```javascript
 // slower with String
-Qap.parse( String data, [ Number startFromIndex ], [ Number limitResultsTo ] ) : []
+Qap.parse( String data, [ Number startFromIndex ], [ Number limitResultsTo ], [ Array array ] ) : []
 // faster with Buffer
-Qap.parse( Buffer data, [ Number startFromIndex ], [ Number limitResultsTo ] ) : []
+Qap.parse( Buffer data, [ Number startFromIndex ], [ Number limitResultsTo ], [ Array array ] ) : []
 ```
 
 > Change the pattern with a Buffer or String
