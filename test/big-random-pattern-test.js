@@ -18,7 +18,7 @@ for ( ; i < plen; ++i ) {
 }
 qap = QuickParser( pattern );
 
-log( Math.log( ( Math.log( plen ) / Math.log( 2 ) ) ) );
+// log( Math.log( ( Math.log( plen ) / Math.log( 2 ) ) ) );
 
 log( '- copy', indexes.length, 'big patterns in test data' );
 pattern.copy( data, indexes[ 0 ] );
