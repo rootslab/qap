@@ -1,3 +1,4 @@
+// ✔
 var log = console.log,
     assert = require( 'assert' ),
     Qap = require( '../' ).Qap,
