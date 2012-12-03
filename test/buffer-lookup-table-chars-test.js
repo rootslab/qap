@@ -10,8 +10,8 @@ for ( var i = 0; i < 255; ++i ) {
     bpattern[ i ] = 0xff;
 }
 
-log( '- check if the pattern is an istance of Buffer.' );
-assert.equal( true, Buffer.isBuffer( qap.plkb ), 'pattern should be a Buffer!' );
+log( '- check if the lookup table is an istance of Buffer.' );
+assert.equal( true, Buffer.isBuffer( qap.plkb ), 'lookup table should be a Buffer!' );
 
 log( '- check if the lookup table is 256 bytes long [0,255].' );
 assert.equal( 256, qap.plkb.length, 'lookup table for this pattern should be 256 bytes long!' );
