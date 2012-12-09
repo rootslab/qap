@@ -3,8 +3,20 @@
  * Qap is a quick parser for string or buffer patterns. 
  * It is optimized for using with pattern strings <= 255 chars/bytes.
  * Better results are achieved with long and sparse patterns.
- * It is an implementation of QuickSearch algorithm :
- * http://www-igm.univ-mlv.fr/~lecroq/string/node19.html#SECTION00190
+ * It is an implementation of QuickSearch algorithm.
+
+###Main features
+
+> Given a m-length pattern and n-length data:
+
+ - simplification of the Boyer-Moore algorithm ( *see [Bop](https://github.com/rootslab/bop)* ).
+ - uses only a bad-character shift table.
+ - preprocessing phase in __O(m+σ)__ time and __O(σ)__ space complexity.
+ - searching phase in __O(m*n)__ time complexity.
+ - very fast in practice for short patterns and large alphabets.
+
+> See [Lecroq](http://www-igm.univ-mlv.fr/~lecroq/string/node19.html) for reference.
+
 
 ###Install
 ```bash
