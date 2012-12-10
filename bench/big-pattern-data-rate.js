@@ -1,30 +1,42 @@
 var log = console.log,
     assert = require( 'assert' ),
     QuickParser = require( '../' ).Qap,
-    mb = 100,
-    pmb = 2,
+    mb = 300,
+    pmb = 20,
     dlen = mb * 1024 * 1024,
     plen = pmb * 1024 * 1024,
     pattern = new Buffer( plen ),
     data = new Buffer( dlen ),
     i = 0,
     rand = 0,
-    qap = null,
+    bop = null,
     indexes = [],
     results = null,
+    otime = 0,
     stime = 0,
-    etime = 0;
+    etime = 0,
+    ttime = 0,
+    // pre-process time
+    pptime = 0;
 
+log( '- benchmark for worst case with a big pattern, not sparse in data' );
+log( '- allocated %d MB of data', mb );
+
+stime = otime = Date.now();
 for ( ; i < plen; ++i ) {
     rand = Math.floor( Math.random() * 255 * plen ) % 255;
     pattern[ i ] = rand; 
 }
-qap = QuickParser( pattern );
-
-log( '- benchmark for worst case with a big pattern, not sparse in data' );
+log( '- created %d MB big pattern in %d secs', pmb, ( ( Date.now()- stime ) / 1000 ).toFixed( 1 ) );
 
 stime = Date.now();
-for ( i = 0; i <= dlen - plen; i += 2 * plen ) {
+qap = QuickParser( pattern );
+pptime = ( ( Date.now()- stime ) / 1000 ).toFixed( 1 );
+log( '- big pattern pre-processed in %d secs', pptime );
+
+otime = Date.now();
+stime = Date.now();
+for ( i = 0; i <= dlen - plen; i += 1.2 * plen ) {
     pattern.copy( data, i );
     indexes.push( i );
 }
@@ -34,6 +46,9 @@ log( '- copied', ( indexes.length ) , 'big patterns (' + pmb + 'MB) in test data
 stime = Date.now();
 results = qap.parse( data );
 etime = ( Date.now() - stime ) / 1000;
+ttime = ( Date.now() - otime ) / 1000;
+
+log( '- test data was parsed in', etime, 'secs' );
 
 log( '- check if results length is equal to', indexes.length );
 assert.equal( results.length, indexes.length );
@@ -41,5 +56,7 @@ assert.equal( results.length, indexes.length );
 log( '- compare results and pre-defined indexes' );
 assert.deepEqual( results, indexes );
 
-log( '- test data was parsed in', etime, 'secs' );
-log( '- parsing data rate is:', ( 8 * mb / etime ).toFixed( 2 ), 'Mbit/sec' );
+log( '- pre-processing data rate is:', ( 8 * mb / pptime / 1024 ).toFixed( 2 ), 'Gbit/sec' );
+log( '- parsing data rate is:', ( 8 * mb / etime / 1024 ).toFixed( 2 ), 'Gbit/sec' );
+log( '- total elapsed time:', ttime.toFixed( 2 ), 'secs' );
+log( '- resulting data-rate:', ( ( 8 * mb / ttime / 1024 ) ).toFixed( 2 ), 'Gbit/sec' );
