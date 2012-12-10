@@ -7,7 +7,7 @@
 
 ###Main features
 
-> Given a m-length pattern and n-length data:
+> Given a m-length pattern and n-length data and σ-length alphabet ( σ = 256 ):
 
  - simplification of the Boyer-Moore algorithm ( *see [Bop](https://github.com/rootslab/bop)* ).
  - uses only a bad-character shift table.
@@ -42,16 +42,16 @@ Qap( Buffer pattern )
 
 ```javascript
 // slower with String
-Qap.parse( String data, [ Number startFromIndex ], [ Number limitResultsTo ], [ Array array ] ) : []
+Qap#parse( String data, [ Number startFromIndex ], [ Number limitResultsTo ], [ Array array ] ) : []
 // faster with Buffer
-Qap.parse( Buffer data, [ Number startFromIndex ], [ Number limitResultsTo ], [ Array array ] ) : []
+Qap#parse( Buffer data, [ Number startFromIndex ], [ Number limitResultsTo ], [ Array array ] ) : []
 ```
 
 > Change the pattern with a Buffer or String
 
 ```javascript
-Qap.setPattern( String anotherPattern )
-Qap.setPattern( Buffer anotherPattern )
+Qap#setPattern( String anotherPattern )
+Qap#setPattern( Buffer anotherPattern )
 ```
 
 ###Usage Example
@@ -105,5 +105,5 @@ the lesser are occurrences of pattern string into the text buffer. ( range: [1,5
   $ node bench/big-pattern-data-rate
 ```
 
-> - it uses a pattern size of 2MB
-> - builds a data buffer of 100MB copying pattern 25 times
+> - it uses a pattern size of 20MB
+> - builds a data buffer of 300MB copying pattern 12 times
