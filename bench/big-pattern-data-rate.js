@@ -20,7 +20,6 @@ var log = console.log,
     pptime = 0;
 
 log( '- benchmark for worst case with a big pattern, not sparse in data' );
-log( '- allocated %d MB of data', mb );
 
 stime = otime = Date.now();
 for ( ; i < plen; ++i ) {
@@ -29,12 +28,13 @@ for ( ; i < plen; ++i ) {
 }
 log( '- created %d MB big pattern in %d secs', pmb, ( ( Date.now()- stime ) / 1000 ).toFixed( 1 ) );
 
+otime = Date.now();
 stime = Date.now();
 qap = QuickParser( pattern );
 pptime = ( ( Date.now()- stime ) / 1000 ).toFixed( 1 );
 log( '- big pattern pre-processed in %d secs', pptime );
 
-otime = Date.now();
+log( '- allocating %d MB of data', mb );
 stime = Date.now();
 for ( i = 0; i <= dlen - plen; i += 1.2 * plen ) {
     pattern.copy( data, i );
