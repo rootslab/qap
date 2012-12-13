@@ -13,25 +13,32 @@ var log = console.log,
     indexes = [],
     results = null,
     otime = 0,
+    ttime = 0,
     stime = 0,
     etime = 0,
-    ttime = 0,
     // pre-process time
-    pptime = 0;
+    pptime = 0,
+    // memory usage
+    smem = null,
+    emem = null;
+
 
 log( '- benchmark for worst case with a big pattern, not sparse in data' );
 
-stime = otime = Date.now();
+stime = Date.now();
 for ( ; i < plen; ++i ) {
     rand = Math.floor( Math.random() * 255 * plen ) % 255;
     pattern[ i ] = rand; 
 }
 log( '- created %d MB big pattern in %d secs', pmb, ( ( Date.now()- stime ) / 1000 ).toFixed( 1 ) );
 
+smem = process.memoryUsage();
+
 otime = Date.now();
 stime = Date.now();
 qap = QuickParser( pattern );
 pptime = ( ( Date.now()- stime ) / 1000 ).toFixed( 1 );
+emem = process.memoryUsage();
 log( '- big pattern pre-processed in %d secs', pptime );
 
 log( '- allocating %d MB of data', mb );
@@ -47,7 +54,6 @@ stime = Date.now();
 results = qap.parse( data );
 etime = ( Date.now() - stime ) / 1000;
 ttime = ( Date.now() - otime ) / 1000;
-
 log( '- test data was parsed in', etime, 'secs' );
 
 log( '- check if results length is equal to', indexes.length );
@@ -57,6 +63,9 @@ log( '- compare results and pre-defined indexes' );
 assert.deepEqual( results, indexes );
 
 log( '- pre-processing data rate is:', ( 8 * mb / pptime / 1024 ).toFixed( 2 ), 'Gbit/sec' );
-log( '- parsing data rate is:', ( 8 * mb / etime / 1024 ).toFixed( 2 ), 'Gbit/sec' );
+log( '- parsing data rate is:', ( 8 * mb / etime / 1024 ).toFixed( 4 ), 'Gbit/sec' );
 log( '- total elapsed time:', ttime.toFixed( 2 ), 'secs' );
-log( '- resulting data-rate:', ( ( 8 * mb / ttime / 1024 ) ).toFixed( 2 ), 'Gbit/sec' );
+log( '- resulting data-rate:', ( ( 8 * mb / ttime / 1024 ) ).toFixed( 4 ), 'Gbit/sec' );
+
+log( '- tables memory usage is %d KBytes', ( ( emem.rss - smem.rss ) / 1024 ).toFixed( 1 ) );
+log( '- tables v8++ heap usage is %d KBytes', ( ( emem.heapUsed - smem.heapUsed ) / 1024 ).toFixed( 1 ) );
