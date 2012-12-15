@@ -107,3 +107,5 @@ the lesser are occurrences of pattern string into the text buffer. ( range: [1,5
 
 > - it uses a pattern size of 20MB
 > - builds a data buffer of 300MB copying pattern 12 times
+
+See [bench](https://github.com/rootslab/qap/tree/master/bench) dir.
