@@ -1,6 +1,10 @@
 var log = console.log,
+    assert = require( 'assert' ),
     QuickParser = require( '../' ).Qap,
     defaultSize = 700.1, //megabytes
+    // pre-record indexes
+    indexes = [],
+    // build a weird buffer
     buildTestBuffer = function( p, MBsize, gapFactor ){
         var s = Date.now(),
             mtime = 0,
@@ -19,15 +23,16 @@ var log = console.log,
         for ( var i = 0,  c = 1, t = new Buffer( tSize ); i + len < tSize; i += len  ){
             if ( ( i % ( gap ) ) === 0 ) {
                 t.write( p.toString() + str, i );
+                indexes.push( i );
             } else {
                 t[ i ] = i % 255;
             } 
         }
         mtime = Date.now() - s;
-        log( ' - current pattern:', JSON.stringify( p.toString() ) );
-        log( ' - pattern length is %d bytes', len );
-        log( ' - current gap factor is', ( gapFactor ) ? gapFactor : 3 ); 
-        log( ' - patterns gap (distance) is %d KBytes', ( gap / 1024 ).toFixed( 2 ) );
+        log( '- current pattern:', JSON.stringify( p.toString() ) );
+        log( '- pattern length is %d bytes', len );
+        log( '- current gap factor is', ( gapFactor ) ? gapFactor : 3 ); 
+        log( '- patterns gap (distance) is %d KBytes', ( gap / 1024 ).toFixed( 2 ) );
         // log( ' - plength / pgap:', len / gap );
         log( ' - buffer creation time:', mtime / 1000, 'secs' ); 
         return t;
@@ -51,9 +56,16 @@ var p = new Buffer( pattern ),
     results = qap.parse( t ),
     elapsed = Date.now() - stime;
 
-log( ' - test buffer size is %d MBytes', bsize || defaultSize );
-log( ' - tables memory usage is %d KBytes', ( ( emem.rss - smem.rss ) / 1024 ).toFixed( 1 ) );
-log( ' - tables v8++ heap usage is %d KBytes', ( ( emem.heapUsed - smem.heapUsed ) / 1024 ).toFixed( 1 ) );
-log( ' - results matched are', results.length );
-log( ' - total elapsed time is %d secs', elapsed / 1000 );
-log( ' - parsing data rate is %d Gbit/s', ( ( 8 * ( bsize || defaultSize ) / ( elapsed / 1000 ) ) / 1024 ).toFixed( 2 ) );
+log( '- test buffer size is %d MBytes', bsize || defaultSize );
+
+log( '- check if results length is equal to', indexes.length );
+assert.equal( results.length, indexes.length );
+
+log( '- compare results and pre-defined indexes' );
+assert.deepEqual( results, indexes );
+
+log( '- tables memory usage is %d KBytes', ( ( emem.rss - smem.rss ) / 1024 ).toFixed( 1 ) );
+log( '- tables v8++ heap usage is %d KBytes', ( ( emem.heapUsed - smem.heapUsed ) / 1024 ).toFixed( 1 ) );
+log( '- results matched are', results.length );
+log( '- total elapsed time is %d secs', elapsed / 1000 );
+log( '- parsing data rate is %d Gbit/s', ( ( 8 * ( bsize || defaultSize ) / ( elapsed / 1000 ) ) / 1024 ).toFixed( 2 ) );
