@@ -1,7 +1,7 @@
 ###QuickParser 
 [![build status](https://secure.travis-ci.org/rootslab/qap.png)](http://travis-ci.org/rootslab/qap)
  * Qap is a quick parser for string or buffer patterns. 
- * It is optimized for using with pattern strings <= 255 chars/bytes.
+ * It is optimized for using with pattern strings <= 255 bytes.
  * Better results are achieved with long and sparse patterns.
  * It is an implementation of QuickSearch algorithm.
 

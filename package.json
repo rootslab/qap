@@ -1,7 +1,7 @@
 {
     "name" : "qap"
-  , "version" : "2.3.7"
-  , "description" : "Qap is a quick parser optimized for string/buffer patterns (<= 255 chars/buffers)."
+  , "version" : "2.3.8"
+  , "description" : "Qap is a quick parser optimized for string/buffer patterns (<= 255 bytes)."
   , "homepage" : "https://github.com/rootslab/qap"
   ,"repository" : {
         "type" : "git"
