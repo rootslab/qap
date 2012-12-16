@@ -112,7 +112,6 @@ the lesser are occurrences of pattern string into the text buffer.
 
 > - table has a size of 256 elements, every element is an integer value that
 > could be between 0 and the pattern length.
-
 > - Fast to preprocess pattern ( = table creation ).
 > - Low memory footprint
 
