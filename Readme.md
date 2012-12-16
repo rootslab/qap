@@ -116,8 +116,6 @@ the lesser are occurrences of pattern string into the text buffer.
 > - Fast to preprocess pattern ( = table creation ).
 > - Low memory footprint
 
-> - .
-
 ```bash
   $ node bench/big-pattern-data-rate
 ```
