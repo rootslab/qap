@@ -38,6 +38,19 @@ module.exports = {
         }
         return t;
     },
+    bcTable24 : function ( p ) {
+        var m = p.length,
+            // shift bits
+            i = 768,
+            t = new Buffer( i ),
+            j = 0;
+        // reset buffer;
+        for ( ; ~i; t[ --i ] = 0 );
+        for ( ; m > 0; ++j, --m ) {
+            // t.writeUInt24BE( m, p[ j ] * 3 );
+        }
+        return t;
+    },
     bcTable32 : function ( p ) {
         var m = p.length,
             // shift bits

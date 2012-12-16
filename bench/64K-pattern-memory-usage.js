@@ -11,8 +11,10 @@ var log = ( !! true ) ? console.log : function () {},
     emem1 = process.memoryUsage(),
     bc16 = t.bcTable16( bp ),
     emem2 = process.memoryUsage(),
-    bc32 = t.bcTable32( bp ),
+    bc24 = t.bcTable24( bp ),
     emem3 = process.memoryUsage(),
+    bc32 = t.bcTable32( bp ),
+    emem4 = process.memoryUsage(),
     // output results
     output = function ( n, e, s, t ) {
         log( '- %s length is %s', n, t );
@@ -110,7 +112,7 @@ for ( ; k < K; ++k ) {
 }
 
 log( Date.now() - stime );
-/**/
+/** /
 
 // 16 bits
 
@@ -142,6 +144,44 @@ for ( ; k < K; ++k ) {
         s = i;
         num = ( bc16[ s ] << 8 ) + bc16[ s + 1 ];
         // num2 = bc16.readUInt16BE( s );
+        // log( num, num2 );
+    }
+}
+
+log( Date.now() - stime );
+
+/**/
+
+// 24 bits
+
+k = 0;
+stime = Date.now();
+var s = 0,
+    num = -1,
+    num2 = -1;
+for ( ; k < K; ++k ) {
+    i = 0;
+    for ( ; i < 768; i += 3 ) {
+        s = i;
+        num = ( bc16[ s ] * 65536 ) + ( bc16[ s + 1 ] * 256 ) + bc16[ s + 2 ];
+        // num2 = bc24.readUInt24BE( s );
+        // log( num, num2 );
+    }
+}
+
+log( Date.now() - stime );
+
+k = 0;
+stime = Date.now();
+var s = 0,
+    num = -1,
+    num2 = -1;
+for ( ; k < K; ++k ) {
+    i = 0;
+    for ( ; i < 768; i += 3 ) {
+        s = i;
+        num = ( bc24[ s ] << 16 ) + ( bc24[ s + 1 ] << 8 ) + bc24[ s + 2 ];
+        // num2 = bc24.readUInt24BE( s );
         // log( num, num2 );
     }
 }
