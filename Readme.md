@@ -22,19 +22,31 @@
 ```bash
 $ npm install qap [-g]
 ```
+
+> __require__:
+
+```javascript
+var Qap = require( 'qap' ).Qap;
+```
+
 ###Run Tests
 
 ```javascript
 $cd qap/
 $npm test
 ```
+
+
 ###Signatures
 
 > Create an instance with a Buffer or String pattern. 
 
 ```javascript
 Qap( String pattern )
+// or
 Qap( Buffer pattern )
+// and also
+new Qap( .. )
 ```
 
 > List all pattern occurrences into a String or Buffer data.
@@ -42,16 +54,17 @@ Qap( Buffer pattern )
 
 ```javascript
 // slower with String
-Qap#parse( String data, [ Number startFromIndex ], [ Number limitResultsTo ], [ Array array ] ) : []
+Qap#parse( String data [, Number startFromIndex [, Number limitResultsTo [, Array array ] ] ] ) : []
 // faster with Buffer
-Qap#parse( Buffer data, [ Number startFromIndex ], [ Number limitResultsTo ], [ Array array ] ) : []
+Qap#parse( Buffer data [, Number startFromIndex [, Number limitResultsTo [, Array array ] ] ] ) : []
 ```
 
-> Change the pattern with a Buffer or String
+> Change the pattern :
 
 ```javascript
-Qap#setPattern( String anotherPattern )
-Qap#setPattern( Buffer anotherPattern )
+Qap#setPattern( String anotherPattern ) : Buffer
+// or
+Qap#setPattern( Buffer anotherPattern ) : Buffer
 ```
 
 ###Usage Example
