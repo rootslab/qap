@@ -54,9 +54,9 @@ new Qap( .. )
 
 ```javascript
 // slower with String
-Qap#parse( String data [, Number startFromIndex [, Number limitResultsTo [, Array array ] ] ] ) : []
+Qap#parse( String data [, Number startFromIndex [, Number limitResultsTo [, Array array ] ] ] ) : Array
 // faster with Buffer
-Qap#parse( Buffer data [, Number startFromIndex [, Number limitResultsTo [, Array array ] ] ] ) : []
+Qap#parse( Buffer data [, Number startFromIndex [, Number limitResultsTo [, Array array ] ] ] ) : Array
 ```
 
 > Change the pattern :
