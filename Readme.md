@@ -1,5 +1,5 @@
 ###QuickParser 
-[![build status](https://secure.travis-ci.org/rootslab/qap.png?branch=master)](http://travis-ci.org/rootslab/qap)
+[![build status](https://secure.travis-ci.org/rootslab/qap.png?branch=master)](http://travis-ci.org/rootslab/qap) [![NPM version](https://badge.fury.io/js/qap.png)](http://badge.fury.io/js/qap)
  * Qap is a quick parser for string or buffer patterns. 
  * It is optimized for using with pattern strings <= 255 bytes.
  * Better results are achieved with long and sparse patterns.
