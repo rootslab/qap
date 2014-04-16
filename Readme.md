@@ -85,6 +85,7 @@ var log = console.log
     , Qap = require( 'qap' )
     , pattern = 'hellofolks\r\n\r\n'
     , text = 'hehe' + pattern +'loremipsumhellofolks\r\n' + pattern
+    , bresult = null
     ;
 
 // create an instance and parse the pattern
@@ -97,13 +98,14 @@ var qap = Qap( pattern )
 qap.set( new Buffer( pattern ) );
 
 // parse data uffer instead of a String
-var bresults = qap.parse( new Buffer( text ) );
+bresults = qap.parse( new Buffer( text ) );
+
+// parser results ( starting indexes ) [ 4, 40 ]
+log( results, bresults );
 
 // results are the same
 assert.deepEqual( results, bresults );
 
-// parser results ( starting indexes ) [ 4, 40 ]
-log( results, bresults );
 ```
 
 ####Benchmark for a small pattern ( length <= 255 bytes )
