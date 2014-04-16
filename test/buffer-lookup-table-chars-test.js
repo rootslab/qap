@@ -1,9 +1,10 @@
 // ✔
-var log = console.log,
-    assert = require( 'assert' ),
-    Qap = require( '../' ).Qap,
-    bpattern = new Buffer( 255 ),
-    qap = Qap( bpattern );
+var log = console.log
+    , assert = require( 'assert' )
+    , Qap = require( '../' )
+    , bpattern = new Buffer( 255 )
+    , qap = Qap( bpattern )
+    ;
 
 log( '. create %d pattern long, with all bytes equal to 0xff', bpattern.length );
 for ( var i = 0; i < 255; ++i ) {
@@ -20,12 +21,15 @@ log( '- check 255th lookup table value, should be >= 0 and != undefined', qap.pl
 assert.notEqual( undefined, qap.plkb[ 255 ], 'lookup table for this pattern should be 256 bytes long!' );
 
 log( '- test array creation if pattern length is >= 256' );
+
 bpattern = new Buffer( 257 );
+
 qap = Qap( bpattern );
+
 log( '. create %d pattern long, with all bytes equal to 0xff', bpattern.length );
 for ( var i = 0; i < 257; ++i ) {
     bpattern[ i ] = 0xff;
-}
+};
 
 log( '- check if the pattern is an istance of Array.' );
 assert.equal( true, Array.isArray( qap.plkb ), 'pattern should be an Array!' );

@@ -8,7 +8,7 @@ module.exports = {
         for ( ; i < blen; bc[ i++ ] = m );
         for ( i = 0; i < m - 1; ++i ) {
             bc[ p[ i ] ] = m - i - 1;
-        }
+        };
         return bc;
     }
 };

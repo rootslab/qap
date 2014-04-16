@@ -1,5 +1,11 @@
-###QuickParser 
-[![build status](https://secure.travis-ci.org/rootslab/qap.png?branch=master)](http://travis-ci.org/rootslab/qap) [![NPM version](https://badge.fury.io/js/qap.png)](http://badge.fury.io/js/qap)
+### Qap, a Quick Parser
+[![build status](https://secure.travis-ci.org/rootslab/qap.png?branch=master)](http://travis-ci.org/rootslab/qap)
+[![NPM version](https://badge.fury.io/js/qap.png)](http://badge.fury.io/js/qap)
+
+[![NPM](https://nodei.co/npm/qap.png?downloads=true&stars=true)](https://nodei.co/npm/qap/)
+
+[![NPM](https://nodei.co/npm-dl/qap.png)](https://nodei.co/npm/qap/)
+
  * Qap is a quick parser for string or buffer patterns. 
  * It is optimized for using with pattern strings <= 255 bytes.
  * Better results are achieved with long and sparse patterns.
@@ -26,7 +32,7 @@ $ npm install qap [-g]
 > __require__:
 
 ```javascript
-var Qap = require( 'qap' ).Qap;
+var Qap = require( 'qap' );
 ```
 
 ###Run Tests
@@ -36,18 +42,24 @@ $cd qap/
 $npm test
 ```
 
+###Run Benchmarks
 
-###Signatures
+```bash
+$ cd qap/
+$ npm run-script bench
+```
 
-> Create an instance with a Buffer or String pattern. 
+###Constructor
+
+> Create an instance with a Buffer or String pattern.
 
 ```javascript
-Qap( String pattern )
+Qap( Buffer || String pattern )
 // or
-Qap( Buffer pattern )
-// and also
-new Qap( .. )
+neq Qap( Buffer || String pattern )
 ```
+
+###Methods
 
 > List all pattern occurrences into a String or Buffer data.
 > It returns a new array of indexes, or populates an array passed as the last argument to parse method.
@@ -55,6 +67,7 @@ new Qap( .. )
 ```javascript
 // slower with String
 Qap#parse( String data [, Number startFromIndex [, Number limitResultsTo [, Array array ] ] ] ) : Array
+
 // faster with Buffer
 Qap#parse( Buffer data [, Number startFromIndex [, Number limitResultsTo [, Array array ] ] ] ) : Array
 ```
@@ -62,35 +75,36 @@ Qap#parse( Buffer data [, Number startFromIndex [, Number limitResultsTo [, Arra
 > Change the pattern :
 
 ```javascript
-Qap#setPattern( String anotherPattern ) : Buffer
-// or
-Qap#setPattern( Buffer anotherPattern ) : Buffer
+Qap#set( Buffer || String pattern ) : Buffer
 ```
 
 ###Usage Example
 
 ```javascript
-var assert = require( 'assert' ),
-    QuickParser = require( './qap' ).QuickParser, // or Qap
-    pattern = 'hellofolks\r\n\r\n',
-    text = 'hehe' + pattern +'loremipsumhellofolks\r\n' + pattern;
+var log = console.log
+    , assert = require( 'assert' )
+    , Qap = require( 'qap' )
+    , pattern = 'hellofolks\r\n\r\n'
+    , text = 'hehe' + pattern +'loremipsumhellofolks\r\n' + pattern
+    ;
 
-// create a Qap instance that parses the pattern
-var qap = QuickParser( pattern ),
-	// parse data from beginning
-	results = qap.parse( text );
+// create an instance and parse the pattern
+var qap = Qap( pattern )
+    // parse data from beginning
+    , results = qap.parse( text )
+    ;
 
-// change pattern with a buffer
-qap.setPattern( new Buffer( pattern ) );
+// set a new Buffer pattern
+qap.set( new Buffer( pattern ) );
 
-// re-parse data passing a Buffer instance instead of a String
+// parse data passing a Buffer instead of a String
 var bresults = qap.parse( new Buffer( text ) );
 
 // results are the same
 assert.deepEqual( results, bresults );
 
 // parser results ( starting indexes ) [ 4, 40 ]
-console.log( results, bresults );
+log( results, bresults );
 ```
 
 ####Benchmark for a small pattern ( length <= 255 bytes )
@@ -135,7 +149,7 @@ the lesser are occurrences of pattern string into the text buffer.
 > - it uses a pattern size of 20MB
 > - builds a data buffer of 300MB copying pattern 12 times
 
-See [bench](https://github.com/rootslab/qap/tree/master/bench) dir.
+See [bench](./bench) dir.
 
 ### MIT License
 

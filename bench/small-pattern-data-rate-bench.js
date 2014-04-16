@@ -1,11 +1,12 @@
-var log = console.log,
-    assert = require( 'assert' ),
-    QuickParser = require( '../' ).Qap,
-    defaultSize = 700.1, //megabytes
+var log = console.log
+    , assert = require( 'assert' )
+    , QuickParser = require( '../' )
+    //megabytes
+    , defaultSize = 700.1
     // pre-record indexes
-    indexes = [],
+    , indexes = []
     // build a weird buffer
-    buildTestBuffer = function( p, MBsize, gapFactor ){
+    , buildTestBuffer = function ( p, MBsize, gapFactor ) {
         var s = Date.now(),
             mtime = 0,
             len = p.length,
@@ -27,7 +28,7 @@ var log = console.log,
             } else {
                 t[ i ] = i % 255;
             } 
-        }
+        };
         mtime = Date.now() - s;
         log( '- current pattern:', JSON.stringify( p.toString() ) );
         log( '- pattern length is %d bytes', len );
@@ -36,10 +37,11 @@ var log = console.log,
         // log( ' - plength / pgap:', len / gap );
         log( ' - buffer creation time:', mtime / 1000, 'secs' ); 
         return t;
-    },
-    bsize,
-    gapfactor,
-    pattern = '---------------------------2046863043300497616870820724\r\n';
+    }
+    , bsize
+    , gapfactor
+    , pattern = '---------------------------2046863043300497616870820724\r\n'
+    ;
 
 process.argv.forEach( function ( val, index, array ) {
     ( index === 2 ) ? ( bsize = parseInt( val, 10 ) )  : null; 
@@ -47,14 +49,15 @@ process.argv.forEach( function ( val, index, array ) {
     ( index === 4 ) ? ( pattern = ( ( val.length > 1 ) && ( val.length < 255 ) ) ? ( '--' + val + '\r\n' ) : pattern ) : null;  
 } );
 
-var p = new Buffer( pattern ),
-    t = buildTestBuffer( p, bsize, gapfactor ),
-    smem = process.memoryUsage(),
-    qap = QuickParser( p ),
-    emem = process.memoryUsage(),
-    stime = Date.now(),
-    results = qap.parse( t ),
-    elapsed = Date.now() - stime;
+var p = new Buffer( pattern )
+    , t = buildTestBuffer( p, bsize, gapfactor )
+    , smem = process.memoryUsage()
+    , qap = QuickParser( p )
+    , emem = process.memoryUsage()
+    , stime = Date.now()
+    , results = qap.parse( t )
+    , elapsed = Date.now() - stime
+    ;
 
 log( '- test buffer size is %d MBytes', bsize || defaultSize );
 

@@ -1,13 +1,14 @@
-var log = console.log,
-    assert = require( 'assert' ),
-    Qap = require( '../' ).Qap,
-    crlf = '\r\n',
-    crlfcrlf = '\r\n\r\n', 
-    pattern = 'bacicc\r\n\r\n',
-    data = 'ambara' + pattern + 'icocco\r\n\r\tregallinesulcom' + pattern + 'obacicc\r\n\ri',
-    qcrlf = Qap( crlf ),
-    qcrlfcrlf = Qap( crlfcrlf ),
-    qpattern = Qap( pattern );
+var log = console.log
+    , assert = require( 'assert' )
+    , Qap = require( '../' )
+    , crlf = '\r\n'
+    , crlfcrlf = '\r\n\r\n'
+    , pattern = 'bacicc\r\n\r\n'
+    , data = 'ambara' + pattern + 'icocco\r\n\r\tregallinesulcom' + pattern + 'obacicc\r\n\ri'
+    , qcrlf = Qap( crlf )
+    , qcrlfcrlf = Qap( crlfcrlf )
+    , qpattern = Qap( pattern )
+    ;
 
 // log( '- crlf:', crlf );
 // log( 'crlfcrlf:', crlfcrlf );
