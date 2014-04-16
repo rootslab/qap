@@ -21,8 +21,7 @@
  - searching phase in __O(m*n)__ time complexity.
  - very fast in practice for short patterns and large alphabets.
 
-> See [Lecroq](http://www-igm.univ-mlv.fr/~lecroq/string/node19.html) for reference.
-
+> See __[Lecroq](http://www-igm.univ-mlv.fr/~lecroq/string/node19.html)__ for reference and also __[Bop](https://github.com/rootslab/bop)__, a Boyer-Moore parser.
 
 ###Install
 ```bash
@@ -97,7 +96,7 @@ var qap = Qap( pattern )
 // set a new Buffer pattern
 qap.set( new Buffer( pattern ) );
 
-// parse data passing a Buffer instead of a String
+// parse data uffer instead of a String
 var bresults = qap.parse( new Buffer( text ) );
 
 // results are the same
@@ -149,7 +148,7 @@ the lesser are occurrences of pattern string into the text buffer.
 > - it uses a pattern size of 20MB
 > - builds a data buffer of 300MB copying pattern 12 times
 
-See [bench](./bench) dir.
+See __[bench](./bench)__ dir.
 
 ### MIT License
 
