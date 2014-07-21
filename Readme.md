@@ -1,10 +1,19 @@
 ### Qap, a Quick Parser
-[![build status](https://secure.travis-ci.org/rootslab/qap.png?branch=master)](http://travis-ci.org/rootslab/qap)
-[![NPM version](https://badge.fury.io/js/qap.png)](http://badge.fury.io/js/qap)
 
-[![NPM](https://nodei.co/npm/qap.png?downloads=true&stars=true)](https://nodei.co/npm/qap/)
+[![LICENSE](http://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rootslab/qap#mit-license)
 
-[![NPM](https://nodei.co/npm-dl/qap.png)](https://nodei.co/npm/qap/)
+[![NPM VERSION](http://img.shields.io/npm/v/qap.svg)](https://www.npmjs.org/package/qap)
+[![TRAVIS CI BUILD](http://img.shields.io/travis/rootslab/qap.svg)](http://travis-ci.org/rootslab/qap)
+[![BUILD STATUS](http://img.shields.io/david/rootslab/qap.svg)](https://david-dm.org/rootslab/qap)
+
+[![NPM GRAPH1](https://nodei.co/npm-dl/qap.png)](https://nodei.co/npm/qap/)
+
+[![GITHUB tag](http://img.shields.io/github/tag/rootslab/qap.svg)](https://github.com/rootslab/qap/tags)
+[![ISSUES](http://img.shields.io/github/issues/rootslab/qap.svg)](https://github.com/rootslab/qap/issues)
+[![GITTIP](http://img.shields.io/gittip/rootslab.svg)](https://www.gittip.com/rootslab/)
+[![NPM DOWNLOADS](http://img.shields.io/npm/dm/qap.svg)](http://npm-stat.com/charts.html?package=qap)
+
+[![NPM GRAPH2](https://nodei.co/npm/qap.png?downloads=true&stars=true)](https://nodei.co/npm/qap/)
 
  * Qap is a quick parser for string or buffer patterns. 
  * It is optimized for using with pattern strings <= 255 bytes.
