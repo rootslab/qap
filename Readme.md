@@ -1,6 +1,6 @@
 ### Qap, a Quick Parser
 
-[[![LICENSE](http://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rootslab/qap#mit-license)
+[![LICENSE](http://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rootslab/qap#mit-license)
 [![GITTIP](http://img.shields.io/gittip/rootslab.svg)](https://www.gittip.com/rootslab/)
 [![NPM DOWNLOADS](http://img.shields.io/npm/dm/qap.svg)](http://npm-stat.com/charts.html?package=qap)
 
