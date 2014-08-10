@@ -1,17 +1,21 @@
 ### Qap, a Quick Parser
 
-[![LICENSE](http://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rootslab/qap#mit-license)
-[![GITTIP](http://img.shields.io/gittip/rootslab.svg)](https://www.gittip.com/rootslab/)
-[![NPM DOWNLOADS](http://img.shields.io/npm/dm/qap.svg)](http://npm-stat.com/charts.html?package=qap)
+[![CODECLIMATE](http://img.shields.io/codeclimate/github/rootslab/qap.svg?style=flat)](https://codeclimate.com/github/rootslab/qap)
+[![CODECLIMATE-TEST-COVERAGE](http://img.shields.io/codeclimate/coverage/github/rootslab/qap.svg?style=flat)](https://codeclimate.com/github/rootslab/qap)
 
-[![NPM VERSION](http://img.shields.io/npm/v/qap.svg)](https://www.npmjs.org/package/qap)
-[![TRAVIS CI BUILD](http://img.shields.io/travis/rootslab/qap.svg)](http://travis-ci.org/rootslab/qap)
-[![BUILD STATUS](http://img.shields.io/david/rootslab/qap.svg)](https://david-dm.org/rootslab/qap)
-[![DEVDEPENDENCY STATUS](http://img.shields.io/david/dev/rootslab/qap.svg)](https://david-dm.org/rootslab/qap#info=devDependencies)
+[![LICENSE](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/rootslab/qap#mit-license)
+[![GITTIP](http://img.shields.io/gittip/rootslab.svg?style=flat)](https://www.gittip.com/rootslab/)
+[![NPM DOWNLOADS](http://img.shields.io/npm/dm/qap.svg?style=flat)](http://npm-stat.com/charts.html?package=qap)
+
+[![NPM VERSION](http://img.shields.io/npm/v/qap.svg?style=flat)](https://www.npmjs.org/package/qap)
+[![TRAVIS CI BUILD](http://img.shields.io/travis/rootslab/qap.svg?style=flat)](http://travis-ci.org/rootslab/qap)
+[![BUILD STATUS](http://img.shields.io/david/rootslab/qap.svg?style=flat)](https://david-dm.org/rootslab/qap)
+[![DEVDEPENDENCY STATUS](http://img.shields.io/david/dev/rootslab/qap.svg?style=flat)](https://david-dm.org/rootslab/qap#info=devDependencies)
 
 [![NPM GRAPH1](https://nodei.co/npm-dl/qap.png)](https://nodei.co/npm/qap/)
 
 [![NPM GRAPH2](https://nodei.co/npm/qap.png?downloads=true&stars=true)](https://nodei.co/npm/qap/)
+
 
  * Qap is a quick parser for string or buffer patterns. 
  * It is optimized for using with pattern strings <= 255 bytes.
