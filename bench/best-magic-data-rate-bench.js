@@ -4,11 +4,12 @@ var log = console.log
     , boundary = new Buffer( 57 )
     // build test data to parse
     , data = ( function () {
-        var test = new Buffer( dlength * 1024 * 1024),
-            t = 0,
-            tlen = test.length;
+        var test = new Buffer( dlength * 1024 * 1024)
+            , t = 0
+            , tlen = test.length
+            ;
         log( '- now building a %d GB test buffer..', ( dlength / 1024 ).toFixed( 2 ) );
-        for( ; ++t < tlen; ) {
+        for ( ; ++t < tlen; ) {
             test[ t ] = t % 256;
         }
         log( '- test buffer created..' );
@@ -16,11 +17,11 @@ var log = console.log
     } )()
     // crook parse method
     , magicParse = function ( pattern, data ) {
-        var i = 0,
-            dlen = data.length,
-            plen = pattern.length,
-            dchar = null,
-            pchar = pattern[ plen - 1 ];
+        var i = 0
+            , dlen = data.length
+            , plen = pattern.length
+            , pchar = pattern[ plen - 1 ]
+            ;
 
         log( '- now parsing test buffer with magic algorithm..' );
 
@@ -33,7 +34,7 @@ var log = console.log
             if( pchar === data[ i ] ) {
                 // ..
             }
-        };
+        }
         return [];
     }
     , results = magicParse( boundary, data )

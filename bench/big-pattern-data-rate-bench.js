@@ -9,7 +9,7 @@ var log = console.log
     , data = new Buffer( dlen )
     , i = 0
     , rand = 0
-    , bop = null
+    , qap = null
     , indexes = []
     , results = null
     , otime = 0
@@ -30,7 +30,7 @@ stime = Date.now();
 for ( ; i < plen; ++i ) {
     rand = Math.floor( Math.random() * 255 * plen ) % 255;
     pattern[ i ] = rand; 
-};
+}
 log( '- created %d MB big pattern in %d secs', pmb, ( ( Date.now()- stime ) / 1000 ).toFixed( 1 ) );
 
 smem = process.memoryUsage();

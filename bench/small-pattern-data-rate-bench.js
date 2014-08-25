@@ -14,21 +14,17 @@ var log = console.log
             mb =  1024 * 1024,
             size = MBsize || defaultSize,
             tSize = parseInt( size * mb, 10 ),
-            logp = Math.log( len ), // log bt
-            logt = Math.log( tSize ), // log a
-            logr = logt / logp,
-            maxLenPower = parseInt( logr, 10 ),
             str = '\r\nContent-Disposition: form-data\r\nLorem\
                     Ipsum et Dolor sit amet, Quisquisce\r\n\r\n';
 
-        for ( var i = 0,  c = 1, t = new Buffer( tSize ); i + len < tSize; i += len  ){
+        for ( var i = 0,  t = new Buffer( tSize ); i + len < tSize; i += len  ){
             if ( ( i % ( gap ) ) === 0 ) {
                 t.write( p.toString() + str, i );
                 indexes.push( i );
             } else {
                 t[ i ] = i % 255;
             } 
-        };
+        }
         mtime = Date.now() - s;
         log( '- current pattern:', JSON.stringify( p.toString() ) );
         log( '- pattern length is %d bytes', len );

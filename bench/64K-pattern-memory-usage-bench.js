@@ -2,8 +2,6 @@ var log = console.log
     , t = require( './tables' )
     // stuff
     , kb = 64
-    , msg = log( '- building and pre-processing a %dKB pattern..', kb )
-    , smem = process.memoryUsage()
     , bp = new Buffer( 1024 * kb )
     , emem0 = process.memoryUsage()
     , bc = t.bcTable( bp )

@@ -16,7 +16,6 @@
 
 [![NPM GRAPH2](https://nodei.co/npm/qap.png?downloads=true&stars=true)](https://nodei.co/npm/qap/)
 
-
  * Qap is a quick parser for string or buffer patterns. 
  * It is optimized for using with pattern strings <= 255 bytes.
  * Better results are achieved with long and sparse patterns.
