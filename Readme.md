@@ -1,30 +1,22 @@
 ### Qap
 
-[![NPM VERSION](http://img.shields.io/npm/v/qap.svg?style=flat)](https://www.npmjs.org/package/qap)
-[![CODACY BADGE](https://img.shields.io/codacy/b18ed7d95b0a4707a0ff7b88b30d3def.svg?style=flat)](https://www.codacy.com/public/44gatti/qap)
-[![CODECLIMATE](http://img.shields.io/codeclimate/github/rootslab/qap.svg?style=flat)](https://codeclimate.com/github/rootslab/qap)
-[![CODECLIMATE-TEST-COVERAGE](https://img.shields.io/codeclimate/coverage/github/rootslab/qap.svg?style=flat)](https://codeclimate.com/github/rootslab/qap)
-[![LICENSE](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/rootslab/qap#mit-license)
-
+![NODE VERSION](https://img.shields.io/node/v/qap.svg)
 [![TRAVIS CI BUILD](http://img.shields.io/travis/rootslab/qap.svg?style=flat)](http://travis-ci.org/rootslab/qap)
 [![BUILD STATUS](http://img.shields.io/david/rootslab/qap.svg?style=flat)](https://david-dm.org/rootslab/qap)
 [![DEVDEPENDENCY STATUS](http://img.shields.io/david/dev/rootslab/qap.svg?style=flat)](https://david-dm.org/rootslab/qap#info=devDependencies)
-[![NPM DOWNLOADS](http://img.shields.io/npm/dm/qap.svg?style=flat)](http://npm-stat.com/charts.html?package=qap)
 
-[![NPM GRAPH1](https://nodei.co/npm-dl/qap.png)](https://nodei.co/npm/qap/)
+[![NPM MONTHLY](http://img.shields.io/npm/dm/qap.svg?style=flat)](http://npm-stat.com/charts.html?package=qap)
+![NPM YEARLY](https://img.shields.io/npm/dy/qap.svg)
 
-[![NPM GRAPH2](https://nodei.co/npm/qap.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/qap/)
+[![NPM GRAPH](https://nodei.co/npm/qap.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/qap/)
 
-[![status](https://sourcegraph.com/api/repos/github.com/rootslab/qap/.badges/status.png)](https://sourcegraph.com/github.com/rootslab/qap)
-[![views](https://sourcegraph.com/api/repos/github.com/rootslab/qap/.counters/views.png)](https://sourcegraph.com/github.com/rootslab/qap)
-[![views 24h](https://sourcegraph.com/api/repos/github.com/rootslab/qap/.counters/views-24h.png)](https://sourcegraph.com/github.com/rootslab/qap)
 
  * __Qap__ is a quick parser for string or buffer patterns. 
  * It is optimized for using with pattern strings <= 255 bytes.
  * Better results are achieved with long and sparse patterns.
  * It is an implementation of QuickSearch algorithm.
 
-###Main features
+### Main features
 
 > Given a m-length pattern and n-length data and σ-length alphabet ( σ = 256 ):
 
@@ -36,7 +28,7 @@
 
 > See __[Lecroq](http://www-igm.univ-mlv.fr/~lecroq/string/node19.html)__ for reference and also __[Bop](https://github.com/rootslab/bop)__, a Boyer-Moore parser.
 
-###Install
+### Install
 ```bash
 $ npm install qap [-g]
 ```
@@ -47,21 +39,21 @@ $ npm install qap [-g]
 var Qap = require( 'qap' );
 ```
 
-###Run Tests
+### Run Tests
 
 ```javascript
 $cd qap/
 $npm test
 ```
 
-###Run Benchmarks
+### Run Benchmarks
 
 ```bash
 $ cd qap/
 $ npm run-script bench
 ```
 
-###Constructor
+### Constructor
 
 > Create an instance with a Buffer or String pattern.
 
@@ -71,7 +63,7 @@ Qap( Buffer || String pattern )
 neq Qap( Buffer || String pattern )
 ```
 
-###Methods
+### Methods
 
 > List all pattern occurrences into a String or Buffer data.
 > It returns a new array of indexes, or populates an array passed as the last argument to parse method.
@@ -90,7 +82,7 @@ Qap#parse( Buffer data [, Number startFromIndex [, Number limitResultsTo [, Arra
 Qap#set( Buffer || String pattern ) : Buffer
 ```
 
-###Usage Example
+### Usage Example
 
 ```javascript
 var log = console.log
@@ -121,7 +113,7 @@ assert.deepEqual( results, bresults );
 
 ```
 
-####Benchmark for a small pattern ( length <= 255 bytes )
+#### Benchmark for a small pattern ( length <= 255 bytes )
 
 > Parser uses a Buffer 256-bytes long to build the shifting table, then:
 
@@ -147,7 +139,7 @@ the lesser are occurrences of pattern string into the text buffer.
   $ node bench/small-pattern-data-rate.js 700 4 "that'sallfolks"
 ```
 
-####Benchmark for a big pattern ( length > 255 bytes )
+#### Benchmark for a big pattern ( length > 255 bytes )
 
 > Parser uses one Array to build the shifting table for a big pattern, then:
 
@@ -167,7 +159,7 @@ See __[bench](./bench)__ dir.
 
 ### MIT License
 
-> Copyright (c) 2015 &lt; Guglielmo Ferri : 44gatti@gmail.com &gt;
+> Copyright (c) 2015-present &lt; Guglielmo Ferri : 44gatti@gmail.com &gt;
 
 > Permission is hereby granted, free of charge, to any person obtaining
 > a copy of this software and associated documentation files (the
