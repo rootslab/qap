@@ -1,5 +1,11 @@
 ### Qap
 
+[![NPM VERSION](http://img.shields.io/npm/v/qap.svg?style=flat)](https://www.npmjs.org/package/qap)
+[![CODACY BADGE](https://img.shields.io/codacy/b18ed7d95b0a4707a0ff7b88b30d3def.svg?style=flat)](https://www.codacy.com/public/44gatti/qap)
+[![CODECLIMATE](http://img.shields.io/codeclimate/github/rootslab/qap.svg?style=flat)](https://codeclimate.com/github/rootslab/qap)
+[![CODECLIMATE-TEST-COVERAGE](https://img.shields.io/codeclimate/coverage/github/rootslab/qap.svg?style=flat)](https://codeclimate.com/github/rootslab/qap)
+[![LICENSE](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/rootslab/qap#mit-license)
+
 ![NODE VERSION](https://img.shields.io/node/v/qap.svg)
 [![TRAVIS CI BUILD](http://img.shields.io/travis/rootslab/qap.svg?style=flat)](http://travis-ci.org/rootslab/qap)
 [![BUILD STATUS](http://img.shields.io/david/rootslab/qap.svg?style=flat)](https://david-dm.org/rootslab/qap)
