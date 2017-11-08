@@ -1,6 +1,6 @@
 {
     "name" : "qap"
-  , "version" : "3.2.1"
+  , "version" : "3.2.2"
   , "description" : "Qap, a quick parser/matcher optimized for string and buffer patterns (<= 255 bytes)."
   , "homepage" : "https://github.com/rootslab/qap"
   ,"repository" : {
